@@ -1,0 +1,13 @@
+{%extends "base.html"%}
+{%block title%} !!!page!!!{%endblock%}
+{%block content%}
+<div class="container">
+    <br>
+    {% for key, value in data1.items() %}
+    {{key는}} {{value}}입니다.
+    <br>
+    {% endfor %}
+    <h3>전송방식은 {{data2}}</h3>
+    <br>
+</div>
+{%endblock%}
