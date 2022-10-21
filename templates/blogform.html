@@ -1,0 +1,25 @@
+{%extends "base.html"%}
+{%block title%}blog list{%endblock%}
+{%block content%}
+<br>
+<h2 class="text-center">blog data</h2>
+<div class="container">
+    <form action="/blogform" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">blog title</label>
+            <input type="text" class="form-control" id="title" name='title' aria-describedby="titleHelp">
+            <div id="titleHelp" class="form-text">블로그 제목 입력 :)</div>
+          </div>
+          <div class="mb-3">
+            <label for="content" class="form-label">blog content</label>
+            <input type="text" class="form-control" id="content" name='content' aria-describedby="contentHelp">
+            <div id="contentHelp" class="form-text">content :)</div>
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">image</label>
+            <input class="form-control" type="file" id="formFile" name="formFile">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{%endblock%}

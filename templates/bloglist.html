@@ -1,0 +1,49 @@
+{%extends "base.html"%}
+{%block title%}blog list{%endblock%}
+{%block content%}
+<br>
+<h2 class="text-center">blog List</h2>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-info">
+              <th scope="col">num</th>
+              <th scope="col">title</th>
+              <th scope="col">etc</th>
+              <th scope="col">etc</th>
+            </tr>
+        </thead>
+          <tbody>
+            {% for item in data %}
+            <tr>
+              <th scope="row">{{item[0]}}</th>
+              <td>{{item[1]}}</td>
+              <td>길동</td>
+              <td>{{item[3]}}</td>
+            </tr>
+            {% endfor %}    
+          </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+</div>
+<div class="container">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="/blogform">
+    <button class="btn btn-outline-info me-md-2" type="button"> blog 작성 
+    </button>
+        </a>
+    </div>
+</div>
+{%endblock%}

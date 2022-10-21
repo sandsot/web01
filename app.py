@@ -2,6 +2,7 @@
 from requests import request
 from flask import Flask, render_template, request, redirect
 import os
+import dbconn as db
 
 app = Flask(__name__)
 
@@ -44,6 +45,23 @@ def fileupload():
         f.save(path)
         print('저장성공 :)')
         return redirect('/')
-    
+
+@app.route('/bloglist') # default methods=['GET']
+def bloglist():
+    conn = db.dbconn()
+    cursor = conn.cursor()
+    sql = '''select * from blog''' # 실행할 쿼리문
+    cursor.execute(sql) # 실행
+    rows = cursor.fetchall() # 전부다 불러옴 fetchall, 하나만 fetchone -> 불러와서 rows에 저장
+    print(rows)
+    return render_template('bloglist.html',data = rows) 
+
+@app.route('/blogform', methods=['GET','POST'])
+def blogform():
+    if request.method == 'GET':
+        return render_template('blogform.html')
+    else:
+        # 글을 DB에 저장
+        return redirect('/bloglist') # 저장하고 목록으로 돌아가기위해 redirect
 if __name__ =='__main__':
     app.run(debug=True,port=80)
