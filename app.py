@@ -97,6 +97,19 @@ def blogdelete(id):
     conn.close()
     return redirect('/bloglist')
 
+
+@app.route('/recommed', methods=['GET','POST'])
+def recommed():
+    if request.method == 'GET':
+        return render_template('recommed.html')
+    else:
+        f = request.files['formFile']
+        path = os.path.dirname(__file__) + '/upload/'+f.filename
+        print(path)
+        f.save(path)
+        print('저장성공 :)')
+        return redirect('/')
+
 #@app.route('/recommed', methods=['GET','POST'])
 # def recommed():
 #     if request.method == 'GET':
