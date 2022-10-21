@@ -1,0 +1,23 @@
+{%extends "base.html"%}
+{%block title%}blog content{%endblock%}
+{%block content%}
+<br>
+<div class="container">
+  <div class="card mb-3">
+    <img src="{{data[3]}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{data[1]}}</h5>
+      <p class="card-text">{{data[2]}}</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+       <button class="btn btn-outline-warning me-md-2" type="button">수정</button>
+        <a href='/blogdelete/{{data[0]}}'>
+         <button class="btn btn-outline-danger" type="button">삭제</button>
+        </a>
+    </div>
+</div>
+{%endblock%}
